@@ -51,9 +51,9 @@ This is the system configuration page explaining the basic settings to look for 
 
 ### Configure
 
-Configure the dnf package manager in `/etc/dnf/dnf.conf`, an example is given in [dnf.conf.example](https://github.com/mBelisarius/Fedora-post-install/blob/main/dnf.conf.example) (see [dnf documentation](https://dnf.readthedocs.io/en/latest/conf_ref.html)).
+Configure the dnf package manager in `/etc/dnf/dnf.conf`, an example is given in [dnf.conf.example](https://github.com/mBelisarius/fedora-for-machine-learning/blob/main/dnf.conf.example) (see [dnf documentation](https://dnf.readthedocs.io/en/latest/conf_ref.html)).
 
-Configure zram-generator in `/etc/systemd/zram-generator.conf`, an example is given in [zram-generator.conf.example](https://github.com/mBelisarius/Fedora-post-install/blob/main/zram-generator.conf.example) (see [zram-generator documentation](https://github.com/systemd/zram-generator/blob/main/man/zram-generator.conf.md)).
+Configure zram-generator in `/etc/systemd/zram-generator.conf`, an example is given in [zram-generator.conf.example](https://github.com/mBelisarius/fedora-for-machine-learning/blob/main/zram-generator.conf.example) (see [zram-generator documentation](https://github.com/systemd/zram-generator/blob/main/man/zram-generator.conf.md)).
 
 Configure the swap parameters by adding the following variables in `/etc/sysctl.conf` (see [Linux VM Performance Tuning](https://lonesysadmin.net/tag/linux-vm-performance-tuning/)):
 ```
@@ -183,7 +183,7 @@ Hardware accelerated codec:
 
 ### Storage optimization
 
-Optimize the BRTFS filesystem partition by adding the following tags in `/etc/fstab` (see [BTRFS specific mount options](https://btrfs.readthedocs.io/en/latest/Administration.html#mount-options)). A fstab file example is given [here](https://github.com/mBelisarius/Fedora-post-install/blob/main/fstab.example).
+Optimize the BRTFS filesystem partition by adding the following tags in `/etc/fstab` (see [BTRFS specific mount options](https://btrfs.readthedocs.io/en/latest/Administration.html#mount-options)). A fstab file example is given [here](https://github.com/mBelisarius/fedora-for-machine-learning/blob/main/fstab.example).
 ```
 compress=zstd:3,discard=async,commit=60,usebackuproot
 ```
@@ -398,8 +398,8 @@ Install JetBrains ToolBox for JetBrains IDEs: [JetBraibs ToolBox](https://www.je
 
 ### Conda environment for Tensorflow
 
-  Follow [Tensorflow step-by-step instructions](https://www.tensorflow.org/install/pip#step-by-step_instructions).
+Follow [Tensorflow step-by-step instructions](https://www.tensorflow.org/install/pip#step-by-step_instructions).
 
 ## Notes
 
-For any problems, enhancements or questions, feel free to open an [issue](https://github.com/mBelisarius/Fedora-post-install/issues/new).
+For any problems, enhancements or questions, feel free to open an [issue](https://github.com/mBelisarius/fedora-for-machine-learning/issues/new).
