@@ -1,0 +1,15 @@
+
+#
+# /etc/fstab
+# Created by anaconda on <date>
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
+#
+# After editing this file, run 'systemctl daemon-reload' to update systemd
+# units generated from this file.
+#
+UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX   /           btrfs   subvol=root,compress=zstd:3,discard=async,commit=60,usebackuproot,x-systemd.device-timeout=0   0 0 
+UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX   /boot       ext4    defaults                                                                                       1 2 
+UUID=XXXX-XXXX                              /boot/efi   vfat    umask=0077,shortname=winnt                                                                     0 2 
+UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX   /home       btrfs   subvol=home,compress=zstd:3,discard=async,commit=60,usebackuproot,x-systemd.device-timeout=0   0 0 
