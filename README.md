@@ -113,6 +113,15 @@ Enable [Flathub](https://flatpak.org/setup/Fedora) repository:
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
+Configure [Flathub desktop integration](https://itsfoss.com/flatpak-app-apply-theme/):
+```
+flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install org.kde.KStyle.Adwaita//5.9 -y
+flatpak install org.kde.PlatformTheme.QGnomePlatform//5.9 -y
+sudo flatpak override --filesystem=$HOME/.themes
+sudo flatpak override --filesystem=$HOME/.icons
+```
+
 ### Drivers
 
 *Make sure to [update the system](#update-the-system) before installing drivers.*
