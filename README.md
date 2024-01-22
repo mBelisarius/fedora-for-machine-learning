@@ -2,7 +2,7 @@
 
 Welcome to the (non-official) Fedora post-installation guide!
 
-This is a guide for setting up the Fedora 37 Workstation Edition for machine learning and general-purpose code development.
+This is a guide for setting up the Fedora 39 Workstation Edition for machine learning and general-purpose code development.
 
 ## Table of Contents
 
@@ -319,12 +319,12 @@ sudo dnf install valgrind valgrind-openmpi -y
 
 Install [KCachegrind](https://docs.kde.org/stable5/en/kcachegrind/kcachegrind/index.html):
 ```
-flatpak install flathub org.kde.kcachegrind
+flatpak install flathub org.kde.kcachegrind -y
 ```
 
 Install [Massif-Visualizer](https://phabricator.kde.org/source/massif-visualizer/), a GUI to visualize output from Massif:
 ```
-flatpak install flathub org.kde.massif-visualizer
+flatpak install flathub org.kde.massif-visualizer -y
 ```
 
 #### Python
@@ -397,7 +397,6 @@ sudo dnf install sublime-text -y
 ```
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-dnf check-update
 sudo dnf install code -y
 ```
 
