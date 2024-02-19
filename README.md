@@ -369,6 +369,11 @@ Install [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/linux-f
 sudo dnf install dotnet -y
 ```
 
+Install [Mono](https://developer.fedoraproject.org/tech/languages/dotnet/mono.html):
+```
+sudo dnf install mono-* nunit -y
+```
+
 ### Database engines and management systems
 
 Install SQLite (see [SQLite installation](https://developer.fedoraproject.org/tech/database/sqlite/about.html)):
