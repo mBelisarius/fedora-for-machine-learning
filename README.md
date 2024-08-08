@@ -142,6 +142,8 @@ sudo akmods --force
 sudo dracut --force
 ```
 
+To preserve video memory after suspend, follow the [Arch Linux Wiki](https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend).
+
 #### AMD drivers
 
 Fedora ships up to date `mesa` driver which is all you will need.
