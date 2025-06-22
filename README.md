@@ -2,7 +2,7 @@
 
 Welcome to the (non-official) Fedora post-installation guide!
 
-This is a guide for setting up the Fedora 39 Workstation Edition for machine learning and general-purpose code development.
+This is a guide for setting up the Fedora 42 Workstation Edition for machine learning and general-purpose code development.
 
 ## Table of Contents
 
@@ -128,21 +128,14 @@ sudo flatpak override --filesystem=$HOME/.icons
 
 #### GPU drivers for NVIDIA cards
 
-Install the [Xorg NVIDIA drivers](https://rpmfusion.org/Howto/NVIDIA):
-```
-sudo dnf install "kernel-devel-uname-r >= $(uname -r)"
-sudo dnf install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-cuda-libs xorg-x11-drv-nvidia-libs.i686 -y
-sudo dnf install vdpauinfo libva-vdpau-driver libva-utils -y
-sudo dnf install vulkan -y
-```
-
-Force the configuration to be read from the updated kernel modules which now have the NVIDIA drivers in them:
-```
-sudo akmods --force
-sudo dracut --force
-```
+Follow the [NVIDIA Driver Installation Guide](https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/).
 
 To preserve video memory after suspend, follow the [Arch Linux Wiki](https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend).
+
+Install [Vulkan libraries](https://rpmfusion.org/Howto/NVIDIA#Vulkan):
+```
+sudo dnf install vulkan -y
+```
 
 #### AMD drivers
 
@@ -157,8 +150,7 @@ sudo dnf install vulkan -y
 
 Some applications require the sound-and-video complement packages as well as hardware accelerated codecs, so for that follow the RPM Fusion Multimedia guide (see [Multimedia on Fedora](https://rpmfusion.org/Howto/Multimedia)):
 ```
-sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
-sudo dnf groupupdate sound-and-video -y
+sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 ```
 
 Hardware accelerated codec:
@@ -176,7 +168,7 @@ Hardware accelerated codec:
   <br/>
 
   > ```
-  > sudo dnf install nvidia-vaapi-driver -y
+  > sudo dnf install libva-nvidia-driver.{i686,x86_64}
   > ```
 </details>
 
@@ -261,7 +253,7 @@ sudo systemctl enable libvirtd
 
 Install Docker (see [Install Docker Engine on Fedora](https://docs.docker.com/engine/install/fedora/)):
 ```
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 ```
 
