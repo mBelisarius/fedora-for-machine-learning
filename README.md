@@ -26,6 +26,7 @@ This is a guide for setting up the Fedora 42 Workstation Edition for machine lea
     - [Vagrant](#vagrant)
   - [Compilers, interpreters and SDKs](#compilers-interpreters-and-sdks)
     - [C/C++](#cc)
+    - [Fortran](#fortran)
     - [Python](#python)
     - [Java](#java)
     - [Rust](#rust)
@@ -106,7 +107,7 @@ Enable [RPM Fusion](https://rpmfusion.org/Configuration) to both free and non-fr
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 ```
 
-#### Install package managers
+#### Enable Flatpak
     
 Enable [Flathub](https://flatpak.org/setup/Fedora) repository:
 ```
@@ -120,6 +121,17 @@ flatpak install org.kde.KStyle.Adwaita//5.9 -y
 flatpak install org.kde.PlatformTheme.QGnomePlatform//5.9 -y
 sudo flatpak override --filesystem=$HOME/.themes
 sudo flatpak override --filesystem=$HOME/.icons
+```
+
+#### Install Spack
+
+"[Spack](https://spack.readthedocs.io/en/latest/index.html) is a package management tool designed to support multiple versions and configurations of software on a wide variety of platforms and environments. It was designed for large supercomputing centers, where many users and application teams share common installations of software on clusters with exotic architectures, using libraries that do not have a standard ABI. Spack is non-destructive: installing a new version does not break existing installations, so many configurations can coexist on the same system".
+
+Install Spack:
+```
+git clone --depth=2 https://github.com/spack/spack.git
+. spack/share/spack/setup-env.sh
+spack compiler find
 ```
 
 ### Drivers
@@ -319,6 +331,13 @@ flatpak install flathub org.kde.kcachegrind -y
 Install [Massif-Visualizer](https://phabricator.kde.org/source/massif-visualizer/), a GUI to visualize output from Massif:
 ```
 flatpak install flathub org.kde.massif-visualizer -y
+```
+
+#### Fortran
+
+Install [GNU Fortran](https://gcc.gnu.org/fortran/) compiler (see [Fortran installation](https://developer.fedoraproject.org/tech/languages/fortran/fortran-installation.html)):
+```
+sudo dnf install gcc-gfortran -y
 ```
 
 #### Python
