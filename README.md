@@ -400,6 +400,22 @@ There are multiple ways to install and run applications with the CUDA Toolkit. T
 
 [WIP]
 
+[NVIDIA HPC SDK](https://developer.nvidia.com/hpc-sdk):
+```
+sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/hpc-sdk/rhel/nvhpc.repo
+sudo dnf install nvhpc-cuda-multi-25.7 -y
+```
+
+Add to the `.bashrc`:
+```
+NVARCH=`uname -s`_`uname -m`; export NVARCH
+NVCOMPILERS=/opt/nvidia/hpc_sdk; export NVCOMPILERS
+MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/25.7/compilers/man; export MANPATH
+PATH=$NVCOMPILERS/$NVARCH/25.7/compilers/bin:$PATH; export PATH
+export PATH=$NVCOMPILERS/$NVARCH/25.7/comm_libs/mpi/bin:$PATH
+export MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/25.7/comm_libs/mpi/man
+```
+
 ### IDEs and text-editors
 
 Install your preferred text-editor.
