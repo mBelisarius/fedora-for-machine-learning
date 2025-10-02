@@ -414,7 +414,7 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
 [NVIDIA HPC SDK](https://developer.nvidia.com/hpc-sdk):
 ```
 sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/hpc-sdk/rhel/nvhpc.repo
-sudo dnf install nvhpc-cuda-multi-25.7 -y
+sudo dnf install nvhpc-cuda-multi-25.9 -y
 ```
 
 Add to the `.bashrc`:
