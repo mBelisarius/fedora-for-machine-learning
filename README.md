@@ -2,7 +2,7 @@
 
 Welcome to the (non-official) Fedora post-installation guide!
 
-This is a guide for setting up the Fedora 42 Workstation Edition for machine learning and general-purpose code development.
+This is a guide for setting up the Fedora 43 Workstation Edition for machine learning and general-purpose code development.
 
 ## Table of Contents
 
@@ -400,9 +400,9 @@ There are multiple ways to install and run applications with the CUDA Toolkit. T
 
 NVIDIA CUDA Toolkit for Fedora distro:
 ```
-sudo dnf config-manager addrepo --from-repofile https://developer.download.nvidia.com/compute/cuda/repos/fedora42/x86_64/cuda-fedora42.repo
+sudo dnf config-manager addrepo --from-repofile https://developer.download.nvidia.com/compute/cuda/repos/fedora43/x86_64/cuda-fedora43.repo
 sudo dnf clean all
-sudo dnf install cuda-toolkit-13-0 -y
+sudo dnf install cuda-toolkit-13-2 -y
 ```
 
 Reboot before proceeding. Set up the development environment:
@@ -414,17 +414,17 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
 [NVIDIA HPC SDK](https://developer.nvidia.com/hpc-sdk):
 ```
 sudo dnf config-manager addrepo --from-repofile=https://developer.download.nvidia.com/hpc-sdk/rhel/nvhpc.repo
-sudo dnf install nvhpc-cuda-multi-25.9 -y
+sudo dnf install nvhpc-26-1-cuda-multi -y
 ```
 
 Add to the `.bashrc`:
 ```
 NVARCH=`uname -s`_`uname -m`; export NVARCH
 NVCOMPILERS=/opt/nvidia/hpc_sdk; export NVCOMPILERS
-MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/25.7/compilers/man; export MANPATH
-PATH=$NVCOMPILERS/$NVARCH/25.7/compilers/bin:$PATH; export PATH
-export PATH=$NVCOMPILERS/$NVARCH/25.7/comm_libs/mpi/bin:$PATH
-export MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/25.7/comm_libs/mpi/man
+MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/26.1/compilers/man; export MANPATH
+PATH=$NVCOMPILERS/$NVARCH/26.1/compilers/bin:$PATH; export PATH
+export PATH=$NVCOMPILERS/$NVARCH/26.1/comm_libs/mpi/bin:$PATH
+export MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/26.1/comm_libs/mpi/man
 ```
 
 Install a writable copy of the samples from [https://github.com/nvidia/cuda-samples](https://github.com/nvidia/cuda-samples), then build and run the nbody sample using the Linux instructions in [https://github.com/NVIDIA/cuda-samples/tree/master/Samples/5_Domain_Specific/nbody](https://github.com/NVIDIA/cuda-samples/tree/master/Samples/5_Domain_Specific/nbody).
